@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Building, Prisma } from '@prisma/client';
 import prisma from '../../../shared/prisma';
-import IBuildingFilter from './buinding.interface';
+import IBuildingFilter from './building.interface';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { buildingSearchableField } from './building.constains';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
@@ -19,18 +19,8 @@ const getAllBuildings = async (
   options: IPaginationOptions
 ): Promise<IGenericResponse<Building[]>> => {
   const { page, limit, skip } = paginationHelpers.calculatePagination(options);
-  const { searchTerm, ...filterData } = filters;
+  const { searchTerm } = filters;
   const andConditions = [];
-
-  if (Object.keys(filterData).length > 0) {
-    andConditions.push({
-      AND: Object.keys(filterData).map(key => ({
-        [key]: {
-          equals: (filterData as any)[key],
-        },
-      })),
-    });
-  }
 
   if (searchTerm) {
     andConditions.push({
