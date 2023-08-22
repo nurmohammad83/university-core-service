@@ -1,0 +1,46 @@
+Sat Aug 19 2023 11:25:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.findMany()` invocation:
+
+{
+  where: {},
+  orderBy: {
+    undefined: "asc",
+    ~~~~~~~~~
+?   id?: SortOrder,
+?   year?: SortOrder,
+?   title?: SortOrder,
+?   code?: SortOrder,
+?   startMonth?: SortOrder,
+?   endMonth?: SortOrder,
+?   createdAt?: SortOrder,
+?   updatedAt?: SortOrder,
+?   students?: StudentOrderByRelationAggregateInput
+  },
+  skip: 0,
+  take: 5
+}
+
+Unknown argument `undefined`. Available options are listed in green.
+Sat Aug 19 2023 11:25:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.findMany()` invocation:
+
+{
+  where: {},
+  orderBy: {
+    undefined: "asc",
+    ~~~~~~~~~
+?   id?: SortOrder,
+?   year?: SortOrder,
+?   title?: SortOrder,
+?   code?: SortOrder,
+?   startMonth?: SortOrder,
+?   endMonth?: SortOrder,
+?   createdAt?: SortOrder,
+?   updatedAt?: SortOrder,
+?   students?: StudentOrderByRelationAggregateInput
+  },
+  skip: 0,
+  take: 5
+}
+
+Unknown argument `undefined`. Available options are listed in green.

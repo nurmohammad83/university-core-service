@@ -1,0 +1,7 @@
+Mon Aug 21 2023 10:4:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Aug 21 2023 10:5:55 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Aug 21 2023 10:6:15 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

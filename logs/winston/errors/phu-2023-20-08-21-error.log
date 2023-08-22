@@ -1,0 +1,157 @@
+Sun Aug 20 2023 21:8:59 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+
+Unique constraint failed on the fields: (`email`)
+Sun Aug 20 2023 21:45:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "studentId is Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicSemesterId"
+    ],
+    "message": "academicSemesterId is Required"
+  }
+]
+Sun Aug 20 2023 21:46:20 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "studentId is Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicSemesterId"
+    ],
+    "message": "academicSemesterId is Required"
+  }
+]
+Sun Aug 20 2023 21:47:12 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "studentId is Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicSemesterId"
+    ],
+    "message": "academicSemesterId is Required"
+  }
+]
+Sun Aug 20 2023 21:49:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "studentId is Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicSemesterId"
+    ],
+    "message": "academicSemesterId is Required"
+  }
+]
+Sun Aug 20 2023 21:49:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "studentId is Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicSemesterId"
+    ],
+    "message": "academicSemesterId is Required"
+  }
+]
+Sun Aug 20 2023 21:53:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.create()` invocation:
+
+{
+  data: {
+    facultyId: "F00001",
+    firstName: "Nur",
+    lastName: "Mohamamd",
+    profileImage: "url_to_profile_image",
+    email: "nur.smith@example.com",
+    contactNo: "123-45261615",
+    gender: "Male",
+    bloodGroup: "B+",
+    designation: "Assitent Professor",
+    academicDepartmentId: "4965a83d-60b5-48e1-9aaa-1343e0b8767a",
+    academicFacultyId: "9a1c8710-498a-4c54-81c6-5b04495f961e",
++   middleName: String
+  }
+}
+
+Argument `middleName` is missing.
+Sun Aug 20 2023 21:53:53 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.create()` invocation:
+
+{
+  data: {
+    facultyId: "F0001",
+    firstName: "Nur",
+    lastName: "Mohamamd",
+    profileImage: "url_to_profile_image",
+    email: "nur.smith@example.com",
+    contactNo: "123-45261615",
+    gender: "Male",
+    bloodGroup: "B+",
+    designation: "Assitent Professor",
+    academicDepartmentId: "4965a83d-60b5-48e1-9aaa-1343e0b8767a",
+    academicFacultyId: "9a1c8710-498a-4c54-81c6-5b04495f961e",
++   middleName: String
+  }
+}
+
+Argument `middleName` is missing.
