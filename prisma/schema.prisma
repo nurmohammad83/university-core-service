@@ -109,11 +109,11 @@ model Building {
 }
 
 model Rooms {
-  id          String   @id @default(uuid())
-  roomNumber  String
-  floor String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         String   @id @default(uuid())
+  roomNumber String
+  floor      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
   buildingId String
 
   building Building @relation(fields: [buildingId], references: [id])
@@ -122,26 +122,25 @@ model Rooms {
 }
 
 model Course {
-  id String @id @default(uuid())
-  title String
-  code String
-  credits Int @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(uuid())
+  title     String
+  code      String
+  credits   Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  prerequsite CourseToPrerequisiteId[] @relation("courseToPreRequisite")
+  prerequsite    CourseToPrerequisiteId[] @relation("courseToPreRequisite")
   prerequsiteFor CourseToPrerequisiteId[] @relation("preRrequisiteToCourse")
 
   @@map("courses")
 }
 
 model CourseToPrerequisiteId {
-  courseId String
+  courseId       String
   preRequisiteId String
-  
-    course Course @relation(fields: [courseId],references: [id] , name:"courseToPreRequisite") 
-   preRequisite Course @relation(fields: [preRequisiteId],references: [id], name:"preRrequisiteToCourse")
 
+  course       Course @relation(fields: [courseId], references: [id], name: "courseToPreRequisite")
+  preRequisite Course @relation(fields: [preRequisiteId], references: [id], name: "preRrequisiteToCourse")
 
-  @@id([courseId,preRequisiteId])
-  }
+  @@id([courseId, preRequisiteId])
+}
