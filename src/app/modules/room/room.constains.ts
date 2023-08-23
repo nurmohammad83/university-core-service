@@ -6,3 +6,7 @@ export const roomFilterableFields = [
   'floor',
   'buildingId',
 ];
+export const roomRelationalFields: string[] = ['buildingId'];
+export const roomRelationalFieldsMapper: { [key: string]: string } = {
+  buildingId: 'building',
+};
