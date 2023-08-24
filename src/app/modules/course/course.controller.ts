@@ -13,5 +13,14 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getAllCourses = catchAsync(async (req: Request, res: Response) => {
+  const result = await CourseService.getAllCourses();
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course retrieved successfully',
+    data: result,
+  });
+});
 
-export const CourseController = { insertIntoDb };
+export const CourseController = { insertIntoDb, getAllCourses };

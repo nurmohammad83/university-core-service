@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import prisma from '../../../shared/prisma';
@@ -48,4 +49,14 @@ const insertIntoDb = async (data: ICourseData): Promise<any> => {
   throw new ApiError(httpStatus.BAD_REQUEST, 'Unable to create courses');
 };
 
-export const CourseService = { insertIntoDb };
+const getAllCourses = async () => {
+  const result = await prisma.course.findMany({
+    include: {
+      prerequsite: true,
+      prerequsiteFor: true,
+    },
+  });
+  return result;
+};
+
+export const CourseService = { insertIntoDb, getAllCourses };
