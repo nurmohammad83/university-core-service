@@ -16,5 +16,19 @@ const create = z.object({
     )
     .optional(),
 });
+const update = z.object({
+  title: z.string().optional(),
+  code: z.string().optional(),
+  credits: z.number().int().optional(),
+  preRequisiteCourses: z
+    .array(
+      z
+        .object({
+          courseId: z.string().optional(),
+        })
+        .optional()
+    )
+    .optional(),
+});
 
-export const CourseValidation = { create };
+export const CourseValidation = { create, update };

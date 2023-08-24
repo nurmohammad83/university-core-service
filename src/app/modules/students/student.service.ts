@@ -64,7 +64,7 @@ const getAllStudents = async (
   }
   const whereConditions: Prisma.StudentWhereInput =
     andConditions.length > 0 ? { AND: andConditions } : {};
-  const total = await prisma.student.count();
+  const total = await prisma.student.count({ where: whereConditions });
   const result = await prisma.student.findMany({
     where: whereConditions,
     orderBy:

@@ -48,7 +48,7 @@ const getAllBuildings = async (
     skip,
     take: limit,
   });
-  const total = await prisma.building.count();
+  const total = await prisma.building.count({ where: whereConditions });
 
   return {
     meta: {

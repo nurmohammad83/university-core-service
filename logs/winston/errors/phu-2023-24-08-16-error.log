@@ -1,0 +1,168 @@
+Thu Aug 24 2023 16:28:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    prerequsite: true,
+    prerequsiteFor: true
+  },
+  skip: 0,
+  take: 10
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 24 2023 16:29:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    prerequsite: true,
+    prerequsiteFor: true
+  },
+  skip: 0,
+  take: 10
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 24 2023 16:31:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "2",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    prerequsite: true,
+    prerequsiteFor: true
+  },
+  skip: 0,
+  take: 10
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 24 2023 16:31:44 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "p",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "p",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "p",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    prerequsite: true,
+    prerequsiteFor: true
+  },
+  skip: 0,
+  take: 10
+}
+
+Unknown argument `contains`. Available options are listed in green.

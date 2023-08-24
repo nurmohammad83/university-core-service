@@ -63,7 +63,7 @@ const getAllRoom = async (
     skip,
     take: limit,
   });
-  const total = await prisma.rooms.count();
+  const total = await prisma.rooms.count({ where: whereConditions });
 
   return {
     meta: {

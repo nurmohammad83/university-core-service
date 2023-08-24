@@ -48,7 +48,9 @@ const getAllDepartments = async (
   }
   const whereConditions: Prisma.AcademicDepartmentWhereInput =
     andConditions.length > 0 ? { AND: andConditions } : {};
-  const total = await prisma.academicDepartment.count();
+  const total = await prisma.academicDepartment.count({
+    where: whereConditions,
+  });
   const result = await prisma.academicDepartment.findMany({
     where: whereConditions,
     orderBy:
