@@ -60,9 +60,22 @@ const updateByIdFromDB = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const assignFaculty = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { faculties } = req.body;
+  console.log(faculties);
+  const result = await CourseService.assignFaculty(id, faculties);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'assignFaculty retrievid successfully',
+    data: result,
+  });
+});
 
 export const CourseController = {
   insertIntoDb,
+  assignFaculty,
   getAllCourses,
   getSingleCourses,
   updateByIdFromDB,
