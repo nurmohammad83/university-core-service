@@ -265,7 +265,6 @@ const removeAssignFaculty = async (
       faculty: true,
     },
   });
-
   return assignFacultyData;
 };
 
