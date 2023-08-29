@@ -4,5 +4,5 @@ import { SemesterRegistrationController } from './semesterRegistration.controlle
 const router = express.Router();
 
 router.post('/', SemesterRegistrationController.insertIntoDb);
-
+router.get('/', SemesterRegistrationController.getAllFromDB);
 export const SemesterRegistrationRoutes = router;
