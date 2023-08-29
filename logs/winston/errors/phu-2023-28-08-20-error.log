@@ -1,0 +1,23 @@
+Mon Aug 28 2023 20:34:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+{
+  data: {
+    startDate: "2023-07-01T00:00:00.000Z",
+    endDate: "2023-07-15T00:00:00.000Z",
+    status: "UPCOMING",
+    minCredit: 12,
+    maxCredit: 15,
+    acadmicSemesterId: "6a10d80f-6520-47c2-b746-4031393af564",
++   academicSemester: {
++     create: AcademicSemesterCreateWithoutSemesterRegistrationsInput | AcademicSemesterUncheckedCreateWithoutSemesterRegistrationsInput,
++     connectOrCreate: AcademicSemesterCreateOrConnectWithoutSemesterRegistrationsInput,
++     connect: AcademicSemesterWhereUniqueInput
++   }
+  },
+  include: {
+    academicSemester: true
+  }
+}
+
+Argument `academicSemester` is missing.

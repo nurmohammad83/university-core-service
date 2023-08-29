@@ -8,8 +8,8 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
   const result = await SemesterRegistrationService.insertIntoDb(req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
-    message: 'Semester Registration created successfully',
     success: true,
+    message: 'Semester Registration created successfully',
     data: result,
   });
 });
