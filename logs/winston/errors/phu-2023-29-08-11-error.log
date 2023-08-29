@@ -1,0 +1,45 @@
+Tue Aug 29 2023 11:18:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Tue Aug 29 2023 11:18:27 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Tue Aug 29 2023 11:18:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.update()` invocation:
+
+{
+  where: {
+    id: "5dbd6d9a-112a-43fd-b623-4dde0658c2ea"
+  },
++ data: SemesterRegistrationUpdateInput | SemesterRegistrationUncheckedUpdateInput
+}
+
+Argument `data` is missing.
+Tue Aug 29 2023 11:20:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.update()` invocation:
+
+{
+  where: {
+    id: "5dbd6d9a-112a-43fd-b623-4dde0658c2ea"
+  },
+  include: {
+    academicSemester: true
+  },
++ data: SemesterRegistrationUpdateInput | SemesterRegistrationUncheckedUpdateInput
+}
+
+Argument `data` is missing.
+Tue Aug 29 2023 11:30:6 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Can only move from UPCOMING to ONGOING
+Tue Aug 29 2023 11:30:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "received": "ONGING",
+    "code": "invalid_enum_value",
+    "options": [
+      "ONGOING",
+      "UPCOMING",
+      "ENDED"
+    ],
+    "path": [
+      "body",
+      "status"
+    ],
+    "message": "Invalid enum value. Expected 'ONGOING' | 'UPCOMING' | 'ENDED', received 'ONGING'"
+  }
+]
+Tue Aug 29 2023 11:31:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Can only move from ONGOING to ENDED

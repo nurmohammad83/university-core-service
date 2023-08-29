@@ -55,10 +55,9 @@ const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
 });
 const updateByIdFromDB = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { registationData } = req.body;
   const result = await SemesterRegistrationService.updateByIdFromDb(
     id,
-    registationData
+    req.body
   );
   sendResponse(res, {
     statusCode: httpStatus.OK,

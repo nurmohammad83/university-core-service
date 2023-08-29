@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/:id', SemesterRegistrationController.getByIdFromDB);
 
 router.patch(
-  '/',
+  '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   validateRequest(SemesterRegistrationValidation.update),
   SemesterRegistrationController.updateByIdFromDB
