@@ -31,4 +31,46 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
     data: result.data,
   });
 });
-export const SemesterRegistrationController = { insertIntoDb, getAllFromDB };
+
+const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await SemesterRegistrationService.getByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'SemesterRegistration fetched successfully',
+    data: result,
+  });
+});
+
+const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await SemesterRegistrationService.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'SemesterRegistration deleted successfully',
+    data: result,
+  });
+});
+const updateByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { registationData } = req.body;
+  const result = await SemesterRegistrationService.updateByIdFromDb(
+    id,
+    registationData
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'SemesterRegistration update successfully',
+    data: result,
+  });
+});
+export const SemesterRegistrationController = {
+  insertIntoDb,
+  getAllFromDB,
+  getByIdFromDB,
+  deleteByIdFromDB,
+  updateByIdFromDB,
+};
