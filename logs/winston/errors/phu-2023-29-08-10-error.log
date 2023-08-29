@@ -1,0 +1,22 @@
+Tue Aug 29 2023 10:19:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+
+The column `semester_registration.createdAt` does not exist in the current database.
+Tue Aug 29 2023 10:21:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+
+The column `semester_registration.createdAt` does not exist in the current database.
+Tue Aug 29 2023 10:22:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findFirst()` invocation:
+
+
+The column `semester_registration.createdAt` does not exist in the current database.
+Tue Aug 29 2023 10:29:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+
+Foreign key constraint failed on the field: `semester_registration_academicSemesterId_fkey (index)`
+Tue Aug 29 2023 10:30:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Tue Aug 29 2023 10:30:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt expired
