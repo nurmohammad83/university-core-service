@@ -103,4 +103,65 @@ const getAllIntoDb = async (
   };
 };
 
-export const OfferedCourseSectionService = { insertIntoDb, getAllIntoDb };
+const getByIdFromDB = async (
+  id: string
+): Promise<OfferedCourseSection | null> => {
+  const result = await prisma.offeredCourseSection.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      offeredCourses: {
+        include: {
+          course: true,
+        },
+      },
+    },
+  });
+  return result;
+};
+
+const updateOneInDB = async (
+  id: string,
+  payload: Partial<OfferedCourseSection>
+): Promise<OfferedCourseSection> => {
+  //update
+  const result = await prisma.offeredCourseSection.update({
+    where: {
+      id,
+    },
+    data: payload,
+    include: {
+      offeredCourses: {
+        include: {
+          course: true,
+        },
+      },
+    },
+  });
+  return result;
+};
+
+const deleteByIdFromDB = async (id: string): Promise<OfferedCourseSection> => {
+  const result = await prisma.offeredCourseSection.delete({
+    where: {
+      id,
+    },
+    include: {
+      offeredCourses: {
+        include: {
+          course: true,
+        },
+      },
+    },
+  });
+  return result;
+};
+
+export const OfferedCourseSectionService = {
+  insertIntoDb,
+  getAllIntoDb,
+  getByIdFromDB,
+  updateOneInDB,
+  deleteByIdFromDB,
+};

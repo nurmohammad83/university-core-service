@@ -33,8 +33,43 @@ const getAllIntoDb = catchAsync(async (req: Request, res: Response) => {
     data: result.data,
   });
 });
+const getByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await OfferedCourseSectionService.getByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'OfferedCourseSection fetched successfully',
+    data: result,
+  });
+});
+
+const updateOneInDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await OfferedCourseSectionService.updateOneInDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'OfferedCourseSection updated successfully',
+    data: result,
+  });
+});
+
+const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await OfferedCourseSectionService.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'OfferedCourseSection deleted successfully',
+    data: result,
+  });
+});
 
 export const OfferedCourseSectionController = {
   insertIntoDb,
   getAllIntoDb,
+  getByIdFromDB,
+  updateOneInDB,
+  deleteByIdFromDB,
 };

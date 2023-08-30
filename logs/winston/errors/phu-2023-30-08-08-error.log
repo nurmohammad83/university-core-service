@@ -211,3 +211,19 @@ Invalid `prisma.offeredCourseSection.count()` invocation:
 }
 
 Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 8:25:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Wed Aug 30 2023 8:25:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_course_sections_offeredCourseId_fkey (index)`
+Wed Aug 30 2023 8:25:50 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_course_sections_offeredCourseId_fkey (index)`
+Wed Aug 30 2023 8:27:2 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_course_sections_offeredCourseId_fkey (index)`
