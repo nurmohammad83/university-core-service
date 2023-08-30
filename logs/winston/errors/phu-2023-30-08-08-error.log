@@ -1,0 +1,213 @@
+Wed Aug 30 2023 8:1:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            id: {
+              contains: "X",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "X",
+              mode: "insensitive"
+            }
+          },
+          {
+            maxCapacity: {
+              contains: "X",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 8:2:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            id: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          },
+          {
+            maxCapacity: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 8:3:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            id: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          },
+          {
+            maxCapacity: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 8:3:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            id: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          },
+          {
+            maxCapacity: {
+              contains: "x",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 8:3:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.findMany()` invocation:
+
+{
+  skip: NaN,
+  where: {},
+  orderBy: {
+    createdAt: "desc"
+  },
++ take: Int
+}
+
+Argument `take` is missing.
+Wed Aug 30 2023 8:4:44 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            id: {
+              contains: "a",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "a",
+              mode: "insensitive"
+            }
+          },
+          {
+            maxCapacity: {
+              contains: "a",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.

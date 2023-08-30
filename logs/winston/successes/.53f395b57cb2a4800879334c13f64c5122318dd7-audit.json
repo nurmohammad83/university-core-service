@@ -209,6 +209,16 @@
             "date": 1693356230206,
             "name": "C:\\NextLevel\\Core Service\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-30-08-06-success.log",
             "hash": "e02b5227de04e8d583541ddc56cff663e402901aac68a35e59a8cbebecf58ca8"
+        },
+        {
+            "date": 1693359090622,
+            "name": "C:\\NextLevel\\Core Service\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-30-08-07-success.log",
+            "hash": "5336b9ee819f2b2c676791d4abf1b247734a9faa8753a0be577eb61470912ff8"
+        },
+        {
+            "date": 1693361007607,
+            "name": "C:\\NextLevel\\Core Service\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-30-08-08-success.log",
+            "hash": "e1a0559306257fcd890b4ff81646fa3718eb771ef53e80dc8950540b9b847e95"
         }
     ],
     "hashType": "sha256"
