@@ -3,6 +3,7 @@ import {
   Prisma,
   SemesterRegistration,
   SemesterRegistrationStatus,
+  StudentSemesterRegistration,
 } from '@prisma/client';
 import prisma from '../../../shared/prisma';
 import ApiError from '../../../errors/ApiError';
@@ -189,10 +190,78 @@ const updateByIdFromDb = async (
   });
   return result;
 };
+
+const startMyRegistration = async (
+  userId: string
+): Promise<{
+  semesterRegistration: SemesterRegistration | null;
+  studentSemesterRegistration: StudentSemesterRegistration;
+}> => {
+  const studentInfo = await prisma.student.findFirst({
+    where: {
+      studentId: userId,
+    },
+  });
+  if (!studentInfo) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Student not found!');
+  }
+
+  const semesterRegistrationInfo = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: {
+        in: [
+          SemesterRegistrationStatus.UPCOMING,
+          SemesterRegistrationStatus.ONGOING,
+        ],
+      },
+    },
+  });
+  if (
+    semesterRegistrationInfo?.status === SemesterRegistrationStatus.UPCOMING
+  ) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      'Registration is not start ont yet!'
+    );
+  }
+  let studentRegistration = await prisma.studentSemesterRegistration.findFirst({
+    where: {
+      student: {
+        id: studentInfo?.id,
+      },
+      semesterRegistration: {
+        id: semesterRegistrationInfo?.id,
+      },
+    },
+  });
+
+  if (!studentRegistration) {
+    studentRegistration = await prisma.studentSemesterRegistration.create({
+      data: {
+        student: {
+          connect: {
+            id: studentInfo?.id,
+          },
+        },
+        semesterRegistration: {
+          connect: {
+            id: semesterRegistrationInfo?.id,
+          },
+        },
+      },
+    });
+  }
+  return {
+    semesterRegistration: semesterRegistrationInfo,
+    studentSemesterRegistration: studentRegistration,
+  };
+};
+
 export const SemesterRegistrationService = {
   insertIntoDb,
   getAllFromDB,
   deleteByIdFromDB,
   getByIdFromDB,
   updateByIdFromDb,
+  startMyRegistration,
 };

@@ -66,10 +66,24 @@ const updateByIdFromDB = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const startMyRegistration = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+  const result = await SemesterRegistrationService.startMyRegistration(
+    user?.userId
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'startMyRegistration started successfully',
+    data: result,
+  });
+});
 export const SemesterRegistrationController = {
   insertIntoDb,
   getAllFromDB,
   getByIdFromDB,
   deleteByIdFromDB,
   updateByIdFromDB,
+  startMyRegistration,
 };

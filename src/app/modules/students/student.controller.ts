@@ -34,7 +34,7 @@ const getAllStudents = catchAsync(async (req: Request, res: Response) => {
   sendResponse<Student[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic Departments retrieved Successfully',
+    message: 'Student retrieved Successfully',
     meta: result.meta,
     data: result.data,
   });
