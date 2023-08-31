@@ -112,7 +112,6 @@ const getByIdFromDB = async (
     },
     include: {
       offeredCoursesSection: true,
-      semesterRegistration: true,
       room: true,
       faculty: true,
     },
@@ -131,7 +130,6 @@ const updateOneInDB = async (
     data: payload,
     include: {
       offeredCoursesSection: true,
-      semesterRegistration: true,
       room: true,
       faculty: true,
     },
@@ -148,7 +146,6 @@ const deleteByIdFromDB = async (
     },
     include: {
       offeredCoursesSection: true,
-      semesterRegistration: true,
       room: true,
       faculty: true,
     },
