@@ -1,5 +1,0 @@
-Mon Aug 21 2023 8:57:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
-Invalid `prisma.faculty.create()` invocation:
-
-
-Unique constraint failed on the fields: (`email`)
