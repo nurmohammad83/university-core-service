@@ -1,5 +1,0 @@
-Mon Aug 21 2023 22:1:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
-Invalid `prisma.rooms.delete()` invocation:
-
-
-An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

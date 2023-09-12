@@ -1,0 +1,50 @@
+Tue Sep 12 2023 11:7:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester Registration is not ended yet!
+Tue Sep 12 2023 11:8:7 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester Registration is not ended yet!
+Tue Sep 12 2023 11:8:50 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started!
+Tue Sep 12 2023 11:9:50 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started!
+Tue Sep 12 2023 11:14:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started!
+Tue Sep 12 2023 11:14:18 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterPayment.create()` invocation:
+
+{
+  data: {
+    studentId: "353fa37c-9c0e-45db-8364-40392e333343",
+    academicSemesterId: "971a3bd5-de0c-4e0a-8710-72eef037fe91",
+    totalPaymentAmount: 15000,
+    ~~~~~~~~~~~~~~~~~~
+    partialPaymentAmount: 7500,
+    totalDueAmount: 15000,
+    totalPaidAmount: 0,
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   fullPaymentAmount?: Int | Null,
+?   paymentStatus?: PaymentStatus | Null
+  }
+}
+
+Unknown argument `totalPaymentAmount`. Available options are listed in green.
+Tue Sep 12 2023 11:15:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterPayment.create()` invocation:
+
+{
+  data: {
+    studentId: "353fa37c-9c0e-45db-8364-40392e333343",
+    academicSemesterId: "971a3bd5-de0c-4e0a-8710-72eef037fe91",
+    totalPaymentAmount: 15000,
+    ~~~~~~~~~~~~~~~~~~
+    partialPaymentAmount: 7500,
+    totalDueAmount: 15000,
+    totalPaidAmount: 0,
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   fullPaymentAmount?: Int | Null,
+?   paymentStatus?: PaymentStatus | Null
+  }
+}
+
+Unknown argument `totalPaymentAmount`. Available options are listed in green.
+Tue Sep 12 2023 11:30:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started!
+Tue Sep 12 2023 11:34:46 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started!
+Tue Sep 12 2023 11:59:6 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Unexpected token ] in JSON at position 644

@@ -12,20 +12,51 @@ import {
   offeredCourseSectionSearchableFields,
 } from './offeredCourseSection.constans';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { asyncForEach } from '../../../shared/utils';
+import { OfferedCourseClassScheduleUtils } from '../offeredCourseClassSchedule/offeredCourseClassSchedule.utils';
 
-const insertIntoDb = async (data: any): Promise<OfferedCourseSection> => {
+const insertIntoDb = async (payload: any) => {
+  const { classSchedule, ...data } = payload;
+  console.log('classSchedule', classSchedule);
   const isExist = await prisma.offeredCourse.findFirst({
     where: {
       id: data.offeredCourseId,
     },
   });
 
-  data.semesterRegistrationId = isExist?.semesterRegistrationId;
   if (!isExist) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Data dose not exist');
   }
-  const result = await prisma.offeredCourseSection.create({ data });
-  return result;
+  data.semesterRegistrationId = isExist?.semesterRegistrationId;
+
+  await asyncForEach(classSchedule, async (schedule: any) => {
+    await OfferedCourseClassScheduleUtils.checkFacultyAvailable(schedule);
+    await OfferedCourseClassScheduleUtils.checkRoomIsAvailable(schedule);
+  });
+
+  const createSchedule = await prisma.$transaction(async transactionClint => {
+    const createOfferedCourseSection =
+      await transactionClint.offeredCourseClassSchedule.create({
+        data,
+      });
+    const scheduleData = classSchedule.map((schedule: any) => ({
+      startTime: schedule.startTime,
+      endTime: schedule.endTime,
+      dayOfWeek: schedule.dayOfWeek,
+      roomId: schedule.roomId,
+      facultyId: schedule.facultyId,
+      offeredCoursesSectionId:
+        createOfferedCourseSection.offeredCoursesSectionId,
+      semesterRegistrationId: isExist.semesterRegistrationId,
+    }));
+    const createSchedule =
+      await transactionClint.offeredCourseClassSchedule.createMany({
+        data: scheduleData,
+      });
+    return createSchedule;
+  });
+  // const result = await prisma.offeredCourseSection.create({ data });
+  // return result;
 };
 
 const getAllIntoDb = async (

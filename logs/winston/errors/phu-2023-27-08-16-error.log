@@ -1,9 +1,0 @@
-Sun Aug 27 2023 16:32:6 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt expired
-Sun Aug 27 2023 16:32:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt expired
-Sun Aug 27 2023 16:52:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
-Sun Aug 27 2023 16:54:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
-Invalid `prisma.courseFaculty.createMany()` invocation:
-
-
-Unique constraint failed on the fields: (`courseId`,`facultyId`)
-Sun Aug 27 2023 16:54:43 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized

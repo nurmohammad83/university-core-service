@@ -1,0 +1,7 @@
+Wed Sep 06 2023 10:42:42 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not enroll any course
+Wed Sep 06 2023 10:53:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not enroll any course
+Wed Sep 06 2023 10:55:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)

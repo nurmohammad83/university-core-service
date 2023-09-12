@@ -1,0 +1,29 @@
+Wed Sep 06 2023 7:25:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:25:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:30:50 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:30:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Wed Sep 06 2023 7:32:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Wed Sep 06 2023 7:35:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Wed Sep 06 2023 7:35:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:35:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Wed Sep 06 2023 7:36:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:36:59 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:37:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:38:33 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:40:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:41:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:44:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:44:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
+Wed Sep 06 2023 7:45:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Forbidden
