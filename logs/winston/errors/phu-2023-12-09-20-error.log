@@ -40,3 +40,45 @@ Invalid `prisma.offeredCourseClassSchedule.create()` invocation:
 }
 
 Argument `startTime` is missing.
+Tue Sep 12 2023 20:53:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.create()` invocation:
+
+{
+  data: {
+    title: "Y",
+    maxCapacity: 20,
+    offeredCourseId: "3b9b142a-787e-46f2-b687-f90e4067d197",
+    semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c",
++   startTime: String
+  }
+}
+
+Argument `startTime` is missing.
+Tue Sep 12 2023 20:58:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.create()` invocation:
+
+{
+  data: {
+    title: "Y",
+    maxCapacity: 20,
+    offeredCourseId: "3b9b142a-787e-46f2-b687-f90e4067d197",
+    semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c",
++   startTime: String
+  }
+}
+
+Argument `startTime` is missing.
+Tue Sep 12 2023 20:59:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.create()` invocation:
+
+{
+  data: {
+    title: "Y",
+    maxCapacity: 20,
+    offeredCourseId: "3b9b142a-787e-46f2-b687-f90e4067d197",
+    semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c",
++   startTime: String
+  }
+}
+
+Argument `startTime` is missing.

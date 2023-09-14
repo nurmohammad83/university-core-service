@@ -13,6 +13,11 @@ router.post(
   validateRequest(FacultyValidation.create),
   FacultyController.createFaculty
 );
+router.get(
+  '/my-courses',
+  auth(ENUM_USER_ROLE.FACULTY),
+  FacultyController.myCourses
+);
 router.patch(
   '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),

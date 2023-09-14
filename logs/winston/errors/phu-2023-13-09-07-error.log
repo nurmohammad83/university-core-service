@@ -1,0 +1,83 @@
+Wed Sep 13 2023 7:14:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Course Section already exists
+Wed Sep 13 2023 7:39:42 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.createMany()` invocation:
+
+{
+  data: [
+    {
+      startTime: "10:00",
+      endTime: "10:30",
+      dayOfWeek: "SATURDAY",
+      roomId: "0a624abb-d74d-458d-ab6f-caef7b954d74",
+      facultyId: "29708104-918a-4f07-9b48-fb9f480f851b",
+      offeredCourseSectionId: "cfccff6c-fb6f-45aa-ad25-f5f4245a3ecc",
+      semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c"
+    },
+    {
+      startTime: "10:30",
+      endTime: "11:30",
+      dayOfWeek: "WEDNESDAY",
+      roomId: "0a624abb-d74d-458d-ab6f-caef7b954d74",
+      facultyId: "29708104-918a-4f07-9b48-fb9f480f851b",
+      offeredCourseSectionId: "cfccff6c-fb6f-45aa-ad25-f5f4245a3ecc",
+      semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c"
+    }
+  ]
+}
+
+Argument `offeredCoursesSectionId` is missing.
+Wed Sep 13 2023 7:40:7 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.createMany()` invocation:
+
+{
+  data: [
+    {
+      startTime: "10:00",
+      endTime: "10:30",
+      dayOfWeek: "SATURDAY",
+      roomId: "0a624abb-d74d-458d-ab6f-caef7b954d74",
+      facultyId: "29708104-918a-4f07-9b48-fb9f480f851b",
+      offeredCourseSectionId: "82053adb-e7c7-4013-b35a-cb7cb480e36b",
+      semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c"
+    },
+    {
+      startTime: "11:00",
+      endTime: "11:30",
+      dayOfWeek: "WEDNESDAY",
+      roomId: "0a624abb-d74d-458d-ab6f-caef7b954d74",
+      facultyId: "29708104-918a-4f07-9b48-fb9f480f851b",
+      offeredCourseSectionId: "82053adb-e7c7-4013-b35a-cb7cb480e36b",
+      semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c"
+    }
+  ]
+}
+
+Argument `offeredCoursesSectionId` is missing.
+Wed Sep 13 2023 7:41:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Course Section already exists
+Wed Sep 13 2023 7:42:40 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.createMany()` invocation:
+
+{
+  data: [
+    {
+      startTime: "8:00",
+      endTime: "9:00",
+      dayOfWeek: "SATURDAY",
+      roomId: "0a624abb-d74d-458d-ab6f-caef7b954d74",
+      facultyId: "29708104-918a-4f07-9b48-fb9f480f851b",
+      offeredCourseSectionId: "594e2ebe-3ff9-4014-9ba7-d577f7dca24f",
+      semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c"
+    },
+    {
+      startTime: "8:30",
+      endTime: "9:30",
+      dayOfWeek: "TUESDAY",
+      roomId: "0a624abb-d74d-458d-ab6f-caef7b954d74",
+      facultyId: "29708104-918a-4f07-9b48-fb9f480f851b",
+      offeredCourseSectionId: "594e2ebe-3ff9-4014-9ba7-d577f7dca24f",
+      semesterRegistrationId: "3e59f2d6-bb51-40ea-b713-4101c0d3279c"
+    }
+  ]
+}
+
+Argument `offeredCoursesSectionId` is missing.
