@@ -13,6 +13,11 @@ router.get(
   SemesterRegistrationController.getMyRegistration
 );
 router.get('/:id', SemesterRegistrationController.getByIdFromDB);
+router.get(
+  '/get-my-semester-courses',
+  auth(ENUM_USER_ROLE.STUDENT),
+  SemesterRegistrationController.getMySemesterRegCouses
+);
 
 router.post(
   '/start-registration',
