@@ -12,17 +12,20 @@ router.post(
   validateRequest(AcademicSemesterValidation.create),
   AcademicSemesterController.insetIntoDb
 );
+
 router.patch(
   '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   validateRequest(AcademicSemesterValidation.update),
   AcademicSemesterController.updateAcademicSemester
 );
+
 router.delete(
   '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicSemesterController.deleteAcademicSemester
 );
+
 router.get('/:id', AcademicSemesterController.getSingleToDb);
 router.get('/', AcademicSemesterController.getAllToDb);
 

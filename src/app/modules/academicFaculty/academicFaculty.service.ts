@@ -4,8 +4,14 @@ import prisma from '../../../shared/prisma';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
-import { academicFacultySearchableField } from './academicFaculty.constants';
+import {
+  EVENT_ACADEMIC_FACULTY_CREATED,
+  EVENT_ACADEMIC_FACULTY_DELETE,
+  EVENT_ACADEMIC_FACULTY_UPDATE,
+  academicFacultySearchableField,
+} from './academicFaculty.constants';
 import IAcademicFacultyFilter from './academicFaculty.interface';
+import { RedisClint } from '../../../shared/redis';
 
 const insetIntoDb = async (
   academicFacultyData: AcademicFaculty
@@ -13,6 +19,13 @@ const insetIntoDb = async (
   const result = await prisma.academicFaculty.create({
     data: academicFacultyData,
   });
+
+  if (result) {
+    await RedisClint.publish(
+      EVENT_ACADEMIC_FACULTY_CREATED,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 
@@ -83,12 +96,25 @@ const updateAcademicFaculty = async (
     where: { id },
     data: payload,
   });
+
+  if (result) {
+    await RedisClint.publish(
+      EVENT_ACADEMIC_FACULTY_UPDATE,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 const deleteAcademicFaculty = async (id: string): Promise<AcademicFaculty> => {
   const result = await prisma.academicFaculty.delete({
     where: { id },
   });
+  if (result) {
+    await RedisClint.publish(
+      EVENT_ACADEMIC_FACULTY_DELETE,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 

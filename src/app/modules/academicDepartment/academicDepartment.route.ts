@@ -24,5 +24,6 @@ router.delete(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AcademicDepartmentController.deleteAcademicDepartment
 );
+router.get('/:id', AcademicDepartmentController.getSingleToDb);
 router.get('/', AcademicDepartmentController.getAllDepartments);
 export const AcademicDepartmentRoutes = router;

@@ -5,7 +5,13 @@ import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import IAcademicDepartmentsFilter from './academicDepartment.interface';
 import { IGenericResponse } from '../../../interfaces/common';
-import { academicDepartmentSearchableField } from './academicDepartment.constans';
+import {
+  EVENT_ACADEMIC_DEPARTMENT_CREATED,
+  EVENT_ACADEMIC_DEPARTMENT_DELETE,
+  EVENT_ACADEMIC_DEPARTMENT_UPDATE,
+  academicDepartmentSearchableField,
+} from './academicDepartment.constans';
+import { RedisClint } from '../../../shared/redis';
 
 const insertIntoDb = async (
   academicDepartmentData: AcademicDepartment
@@ -13,6 +19,13 @@ const insertIntoDb = async (
   const result = await prisma.academicDepartment.create({
     data: academicDepartmentData,
   });
+
+  if (result) {
+    await RedisClint.publish(
+      EVENT_ACADEMIC_DEPARTMENT_CREATED,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 
@@ -76,14 +89,36 @@ const updateAcademicDepartment = async (
     where: { id },
     data: payload,
   });
+  if (result) {
+    await RedisClint.publish(
+      EVENT_ACADEMIC_DEPARTMENT_UPDATE,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
+
+const getSingleToDb = async (
+  id: string
+): Promise<AcademicDepartment | null> => {
+  const result = await prisma.academicDepartment.findUnique({
+    where: { id },
+  });
+  return result;
+};
+
 const deleteAcademicDepartment = async (
   id: string
 ): Promise<AcademicDepartment> => {
   const result = await prisma.academicDepartment.delete({
     where: { id },
   });
+  if (result) {
+    await RedisClint.publish(
+      EVENT_ACADEMIC_DEPARTMENT_DELETE,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 
@@ -92,4 +127,5 @@ export const AcademicDepartmentService = {
   getAllDepartments,
   updateAcademicDepartment,
   deleteAcademicDepartment,
+  getSingleToDb,
 };

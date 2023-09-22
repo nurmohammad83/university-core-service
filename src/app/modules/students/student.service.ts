@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Prisma, Student } from '@prisma/client';
+import { Prisma, Student, StudentEnrolledCourseStatus } from '@prisma/client';
 import prisma from '../../../shared/prisma';
 import IStudentFilter from './student.interface';
 import { IPaginationOptions } from '../../../interfaces/pagination';
@@ -10,8 +10,9 @@ import {
   studentRelationalFieldsMapper,
   studentSearchableField,
 } from './student.constans';
+import { StudentUtils } from './student.utils';
 
-const createStudent = async (studentData: Student): Promise<Student> => {
+const insertIntoDB = async (studentData: Student): Promise<Student> => {
   const result = await prisma.student.create({
     data: studentData,
     include: {
@@ -215,12 +216,100 @@ const getMyCourseSchedules = async (
   return result;
 };
 
+const getMyAcademicInfo = async (authUserId: string): Promise<any> => {
+  const academicInfo = await prisma.studentAcademicInfo.findFirst({
+    where: {
+      student: {
+        studentId: authUserId,
+      },
+    },
+  });
+
+  const enrolledCourses = await prisma.studentEnrolledCourse.findMany({
+    where: {
+      student: {
+        studentId: authUserId,
+      },
+      status: StudentEnrolledCourseStatus.COMPLETED,
+    },
+    include: {
+      course: true,
+      academicSemester: true,
+    },
+    orderBy: {
+      createdAt: 'asc',
+    },
+  });
+
+  const groupByAcademicSemesterData =
+    StudentUtils.groupByAcademicSemester(enrolledCourses);
+
+  return {
+    academicInfo,
+    courses: groupByAcademicSemesterData,
+  };
+};
+
+const createStudentFromEvent = async (e: any) => {
+  const studentData: Partial<Student> = {
+    studentId: e.id,
+    firstName: e.name.firstName,
+    lastName: e.name.lastName,
+    middleName: e.name.middleName,
+    email: e.email,
+    contactNo: e.contactNo,
+    gender: e.gender,
+    bloodGroup: e.bloodGroup,
+    academicSemesterId: e.academicSemester.syncId,
+    academicDepartmentId: e.academicDepartment.syncId,
+    academicFacultyId: e.academicFaculty.syncId,
+  };
+
+  await insertIntoDB(studentData as Student);
+};
+
+const updateStudentFromEvent = async (e: any): Promise<void> => {
+  const isExist = await prisma.student.findFirst({
+    where: {
+      studentId: e.id,
+    },
+  });
+
+  if (!isExist) {
+    await createStudentFromEvent(e);
+    return;
+  } else {
+    const student: Partial<Student> = {
+      studentId: e.id,
+      firstName: e.name.firstName,
+      lastName: e.name.lastName,
+      middleName: e.name.middleName,
+      profileImage: e.profileImage,
+      email: e.email,
+      contactNo: e.contactNo,
+      gender: e.gender,
+      bloodGroup: e.bloodGroup,
+      academicDepartmentId: e.academicDepartment.syncId,
+      academicFacultyId: e.academicFaculty.syncId,
+      academicSemesterId: e.academicSemester.syncId,
+    };
+    await prisma.student.updateMany({
+      where: {
+        studentId: e.id,
+      },
+      data: student as Student,
+    });
+  }
+};
 export const StudentService = {
-  createStudent,
+  insertIntoDB,
   getAllStudents,
   getSingleStudent,
   updateStudent,
   deleteStudent,
   myCourses,
   getMyCourseSchedules,
+  getMyAcademicInfo,
+  createStudentFromEvent,
+  updateStudentFromEvent,
 };

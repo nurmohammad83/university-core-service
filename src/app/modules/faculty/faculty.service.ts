@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { CourseFaculty, Faculty, Prisma } from '@prisma/client';
+import { CourseFaculty, Faculty, Prisma, Student } from '@prisma/client';
 import prisma from '../../../shared/prisma';
-import IFacultyFilter from './faculty.interface';
+import IFacultyFilter, {
+  FacultyCreatedEvent,
+  IFacultyMyCourseStudentsRequest,
+} from './faculty.interface';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { IGenericResponse } from '../../../interfaces/common';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
@@ -250,7 +253,140 @@ const myCourses = async (
   );
   return couseAndSchedule;
 };
+const getMyCourseStudents = async (
+  filters: IFacultyMyCourseStudentsRequest,
+  options: IPaginationOptions,
+  authUser: any
+): Promise<IGenericResponse<Student[]>> => {
+  const { limit, page, skip } = paginationHelpers.calculatePagination(options);
+  console.log(authUser);
+  if (!filters.academicSemesterId) {
+    const currentAcademicSemester = await prisma.academicSemester.findFirst({
+      where: {
+        isCurrent: true,
+      },
+    });
 
+    if (currentAcademicSemester) {
+      filters.academicSemesterId = currentAcademicSemester.id;
+    }
+  }
+
+  const offeredCourseSections =
+    await prisma.studentSemesterRegistrationCourse.findMany({
+      where: {
+        offeredCourse: {
+          course: {
+            id: filters.courseId,
+          },
+        },
+        offeredCourseSection: {
+          offeredCourses: {
+            semesterRegistration: {
+              academicSemester: {
+                id: filters.academicSemesterId,
+              },
+            },
+          },
+          id: filters.offeredCourseSectionId,
+        },
+      },
+      include: {
+        student: true,
+      },
+      take: limit,
+      skip,
+    });
+
+  const students = offeredCourseSections.map(
+    offeredCourseSection => offeredCourseSection.student
+  );
+
+  const total = await prisma.studentSemesterRegistrationCourse.count({
+    where: {
+      offeredCourse: {
+        course: {
+          id: filters.courseId,
+        },
+      },
+      offeredCourseSection: {
+        offeredCourses: {
+          semesterRegistration: {
+            academicSemester: {
+              id: filters.academicSemesterId,
+            },
+          },
+        },
+        id: filters.offeredCourseSectionId,
+      },
+    },
+  });
+
+  return {
+    meta: {
+      total,
+      page,
+      limit,
+    },
+    data: students,
+  };
+};
+
+const createFacultyFromEvent = async (
+  e: FacultyCreatedEvent
+): Promise<void> => {
+  const faculty: Partial<Faculty> = {
+    facultyId: e.id,
+    firstName: e.name.firstName,
+    lastName: e.name.lastName,
+    middleName: e.name.middleName,
+    profileImage: e.profileImage,
+    email: e.email,
+    contactNo: e.contactNo,
+    gender: e.gender,
+    bloodGroup: e.bloodGroup,
+    designation: e.designation,
+    academicDepartmentId: e.academicDepartment.syncId,
+    academicFacultyId: e.academicFaculty.syncId,
+  };
+
+  const data = await createFaculty(faculty as Faculty);
+  console.log('RES: ', data);
+};
+
+const updateFacultyFromEvent = async (e: any): Promise<void> => {
+  const isExist = await prisma.faculty.findFirst({
+    where: {
+      facultyId: e.id,
+    },
+  });
+  if (!isExist) {
+    createFacultyFromEvent(e);
+  } else {
+    const facultyData: Partial<Faculty> = {
+      facultyId: e.id,
+      firstName: e.name.firstName,
+      lastName: e.name.lastName,
+      middleName: e.name.middleName,
+      profileImage: e.profileImage,
+      email: e.email,
+      contactNo: e.contactNo,
+      gender: e.gender,
+      bloodGroup: e.bloodGroup,
+      designation: e.designation,
+      academicDepartmentId: e.academicDepartment.syncId,
+      academicFacultyId: e.academicFaculty.syncId,
+    };
+
+    const res = await prisma.faculty.updateMany({
+      where: {
+        facultyId: e.id,
+      },
+      data: facultyData,
+    });
+    console.log(res);
+  }
+};
 export const FacultyService = {
   createFaculty,
   getAllFaculty,
@@ -260,4 +396,7 @@ export const FacultyService = {
   assignCourses,
   myCourses,
   removeAssignCourses,
+  getMyCourseStudents,
+  updateFacultyFromEvent,
+  createFacultyFromEvent,
 };

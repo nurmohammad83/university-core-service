@@ -64,10 +64,21 @@ const deleteAcademicDepartment = catchAsync(
     });
   }
 );
+const getSingleToDb = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await AcademicDepartmentService.getSingleToDb(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Single academic semester fetched successfully',
+    data: result,
+  });
+});
 
 export const AcademicDepartmentController = {
   insertIntoDb,
   getAllDepartments,
   updateAcademicDepartment,
   deleteAcademicDepartment,
+  getSingleToDb,
 };

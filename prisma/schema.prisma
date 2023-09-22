@@ -62,7 +62,7 @@ model Student {
   firstName                          String
   lastName                           String
   middleName                         String                              @default("")
-  profileImage                       String
+  profileImage                       String?
   email                              String                              @unique
   contactNo                          String
   gender                             String
